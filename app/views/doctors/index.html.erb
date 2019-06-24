@@ -1,0 +1,8 @@
+<ol>
+<% @doctors.each do |d| %>
+    <li><%= d.name %></li>
+    <%= link_to "Doctor Page", d %><br>
+    <%= d.appointments.count %><br>
+    <br>
+<% end %>
+</ul>
