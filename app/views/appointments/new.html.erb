@@ -1,0 +1,22 @@
+<%= form_for @appointment do |f| %>
+  <%= f.label :appointment_datetime %>
+  <%= f.text_field :appointment_datetime %><br>
+ 
+  <%= f.fields_for :doctors do |doc| %>
+    <%= doc.label :name %>
+    <%= doc.text_field :name %><br>
+ 
+    <%= doc.label :department %>
+    <%= doc.text_field :department %><br>
+  <% end %>
+
+  <%= f.fields_for :patients do |pat| %>
+    <%= pat.label :name %>
+    <%= pat.text_field :name %><br>
+ 
+    <%= pat.label :age %>
+    <%= pat.text_field :age %><br>
+  <% end %>
+ 
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,7 @@
+<%= @patient.name %>
+<% @patient.appointments.each do |app| %>
+    <% date = app.appointment_datetime %>
+    <% doctor = Doctor.find(app.doctor_id) %>
+        <p><%= "#{Date::MONTHNAMES[date.month]} #{date.day}, #{date.year} at #{date.hour}:#{date.min}"%></p>
+        <p><%= link_to doctor.name, doctor_path(doctor)  %></p>
+<% end %>
