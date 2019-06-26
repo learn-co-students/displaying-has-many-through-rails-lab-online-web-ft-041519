@@ -1,0 +1,10 @@
+<h1><%= @doctor.name %></h1>
+
+<% @doctor.appointments.each do |app| %>
+    <div>
+    <% date = app.appointment_datetime %>
+    <% patient = Patient.find(app.patient_id) %>
+        <p><%= "#{Date::MONTHNAMES[date.month]} #{date.day}, #{date.year} at #{date.hour}:#{date.min}"%></p>
+        <p><%= link_to patient.name, patient_path(patient)  %></p>
+    </div>
+<% end %>
